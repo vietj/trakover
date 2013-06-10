@@ -30,7 +30,7 @@ public class Main {
   private static final int KB = 1024;
 
   /** . */
-  private static final int MB = 1024 * KB;
+  private static final int THRESHOLD = 800 * KB;
 
   public static void main(String[] args) throws Exception {
     if (args.length >= 1) {
@@ -73,8 +73,8 @@ public class Main {
                   if (song.hasId3v2Tag()){
                     ID3v2 id3v2tag = song.getId3v2Tag();
                     byte[] bytes = id3v2tag.getAlbumImage();
-                    if (bytes != null && bytes.length > MB) {
-                      System.out.println("File: " + path + " exceeds 1MB");
+                    if (bytes != null && bytes.length > THRESHOLD) {
+                      System.out.println("File: " + path + " exceeds 800KB");
                     }
                   }
                   count++;
